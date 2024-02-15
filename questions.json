@@ -1,0 +1,83 @@
+[
+    {
+        "question": "מה היא קונסולת המשחקים המועדפת עליך?",
+        "answers": [
+            { "answer": "PlayStation", "yScore": 1, "sScore": 0, "mScore": 0},
+            { "answer": "Nintendo Switch", "yScore": 1, "sScore": 0, "mScore": 0},
+            { "answer": "PC", "yScore": 0, "sScore": 1, "mScore": 0 },
+            { "answer": "VR", "yScore": 0, "sScore": 1, "mScore": 0 }
+        ]
+    },
+    {
+        "question": "באיזה אימון תעדיף להשתתף?",
+        "answers": [
+            { "answer": "כדורגל", "yScore": 1, "sScore": 0, "mScore": 0 },
+            { "answer": "כדורסל", "yScore": 1, "sScore": 0, "mScore": 0},
+            { "answer": "זומבה", "yScore": 0, "sScore": 1, "mScore": 0 },
+            { "answer": "ריצה", "yScore": 0, "sScore": 0, "mScore": 1 },
+            { "answer": "שחייה", "yScore": 0, "sScore": 1, "mScore": 0 }
+        ]
+    },
+    {
+        "question": "מה ז'אנר הסרטים האהוב עליך?",
+        "answers": [
+            { "answer": "אקשן", "yScore": 1, "sScore": 0, "mScore": 0 },
+            { "answer": "קומדיה", "yScore": 1, "sScore": 1, "mScore": 0},
+            { "answer": "דיסני", "yScore": 1, "sScore": 1, "mScore": 0},
+            { "answer": "אימה", "yScore": 0, "sScore": 0, "mScore": 1 },
+            { "answer": "דוקו", "yScore": 0, "sScore": 1, "mScore": 0 }
+        ]
+    },
+    {
+        "question": "מה הצבע האהוב עליך?",
+        "answers": [
+            { "answer": "כחול", "yScore": 1, "sScore": 0, "mScore": 0 },
+            { "answer": "סגול", "yScore": 0, "sScore": 1, "mScore": 0},
+            { "answer": "צהוב", "yScore": 1, "sScore": 0, "mScore": 0 },
+            { "answer": "ורוד", "yScore": 0, "sScore": 1, "mScore": 0 },
+            { "answer": "חום", "yScore": 0, "sScore": 0, "mScore": 1 }
+        ]
+    },
+    {
+        "question": "איזו מוזיקה תעדיף?",
+        "answers": [
+            { "answer": "ראפ ישראלי", "yScore": 1, "sScore": 0, "mScore": 0 },
+            { "answer": "רוק ומטאל", "yScore": 1, "sScore": 1, "mScore": 0},
+            { "answer": "פופ", "yScore": 0, "sScore": 1, "mScore": 0 },
+            { "answer": "דודו פארוק", "yScore": 0, "sScore": 0, "mScore": 1 },
+            { "answer": "מזרחית" , "yScore": 1, "sScore": 0, "mScore": 0}
+        ]
+    },
+    {
+        "question": "על איזה רכב תעדיף לנהוג?",
+        "answers": [
+            { "answer": "קטן שנכנס בכל חנייה", "yScore": 0, "sScore": 1, "mScore": 0 },
+            { "answer": "גדול ולהתנשא על כולם", "yScore": 1, "sScore": 0, "mScore": 0},
+            { "answer": "מעדיף ללכת ברגל", "yScore": 0, "sScore": 0, "mScore": 1 }
+        ]
+    },
+    {
+        "question": "מה החיה האהובה עליך?",
+        "answers": [
+            { "answer": "כלב", "yScore": 1, "sScore": 1, "mScore": 1 }
+        ]
+    },
+    {
+        "question": "רשת חברתית מועדפת?",
+        "answers": [
+            { "answer": "Facebook", "yScore": 1, "sScore": 0, "mScore": 0 },
+            { "answer": "Instagram", "yScore": 1, "sScore": 1, "mScore": 0},
+            { "answer": "TikTok", "yScore": 0, "sScore": 1, "mScore": 0 },
+            { "answer": "אין לי", "yScore": 0, "sScore": 0, "mScore": 1 }
+        ]
+    },
+    {
+        "question": "מה תעדיף לעשות בזמנך הפנוי?",
+        "answers": [
+            { "answer": "לגו", "yScore": 1, "sScore": 0, "mScore": 0 },
+            { "answer": "בינג' סדרות", "yScore": 1, "sScore": 1, "mScore": 0},
+            { "answer": "טיול", "yScore": 0, "sScore": 0, "mScore": 1 },
+            { "answer": "משחקי קופסה" , "yScore": 0, "sScore": 1, "mScore": 0}
+        ]
+    }
+]
