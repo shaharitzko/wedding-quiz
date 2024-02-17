@@ -6,7 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Result page!</h1>
+    <% if (locals.result) {%>
+        <h1>יצאת</h1>
+        <h1><%= result %></h1>
+
+    <% } else { %>
+        <h1>Error. Get out.</h1>
+    <% } %>
     
 </body>
 </html>

@@ -19,9 +19,17 @@ function readQuestionsFile(questionsFilePath) {
     }
 }
 
+function CheckWinner(maple, shahar, yotam) {
+    if (yotam > shahar && yotam > maple)
+        return "Yotam";
+    else if (shahar > yotam && shahar > maple)
+        return "Shahar";
+    return "Maple";
+}
+
 const questions = JSON.parse(readQuestionsFile("questions.json"));
 let mapleScore = 0;
-let shsharScore = 0;
+let shaharScore = 0;
 let yotamScore = 0;
 let questionNum = 0;
 
@@ -36,17 +44,18 @@ app.post("/", (req, res) => {
     if ('vbtn-radio' in req.body) {
         const ans = req.body['vbtn-radio'];
         mapleScore += questions[questionNum].answers[ans].mScore;
-        shsharScore += questions[questionNum].answers[ans].sScore;
+        shaharScore += questions[questionNum].answers[ans].sScore;
         yotamScore += questions[questionNum].answers[ans].yScore;
         
         console.log("maple: %d", mapleScore);
-        console.log("shahar: %d", shsharScore);
+        console.log("shahar: %d", shaharScore);
         console.log("yotam: %d", yotamScore);
 
         questionNum++;
     }
     if (questionNum == questions.length){
-        res.render(__dirname + "/views/result.ejs");
+        const who = CheckWinner(mapleScore, shaharScore, yotamScore);
+        res.render(__dirname + "/views/result.ejs", {result : who});
     } else {   
         res.render(__dirname + "/views/index.ejs", {question : questions[questionNum]});
     }
