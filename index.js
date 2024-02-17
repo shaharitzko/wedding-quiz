@@ -21,10 +21,10 @@ function readQuestionsFile(questionsFilePath) {
 
 function CheckWinner(maple, shahar, yotam) {
     if (yotam > shahar && yotam > maple)
-        return "Yotam";
+        return "יותם";
     else if (shahar > yotam && shahar > maple)
-        return "Shahar";
-    return "Maple";
+        return "שחר";
+    return "מייפל";
 }
 
 const questions = JSON.parse(readQuestionsFile("questions.json"));
