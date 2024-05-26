@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import session from "express-session";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
@@ -28,36 +29,47 @@ function CheckWinner(maple, shahar, yotam) {
 }
 
 const questions = JSON.parse(readQuestionsFile("questions.json"));
-let mapleScore = 0;
-let shaharScore = 0;
-let yotamScore = 0;
-let questionNum = 0;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Set up express-session
+app.use(session({
+    secret: 'mySecret', // replace with your own secret key
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: null, secure: false } // Session cookie expires when the browser is closed
+}));
+
 app.get("/", (req, res) => {
-    res.render(__dirname + "/views/index.ejs", {question : questions[questionNum]});
+    // Initialize session variables if not already set
+    if (!req.session.mapleScore && !req.session.shaharScore && !req.session.yotamScore) {
+        req.session.mapleScore = 0;
+        req.session.shaharScore = 0;
+        req.session.yotamScore = 0;
+        req.session.questionNum = 0;
+    } else if (req.session.questionNum == questions.length){
+        const who = CheckWinner(req.session.mapleScore, req.session.shaharScore, req.session.yotamScore);
+        res.render(__dirname + "/views/result.ejs", {result : who});
+    }
+    res.render(__dirname + "/views/index.ejs", {question : questions[req.session.questionNum]});
 });
 
 app.post("/", (req, res) => {
     if ('vbtn-radio' in req.body) {
         const ans = req.body['vbtn-radio'];
-        mapleScore += questions[questionNum].answers[ans].mScore;
-        shaharScore += questions[questionNum].answers[ans].sScore;
-        yotamScore += questions[questionNum].answers[ans].yScore;
-        
-        console.log("maple: %d", mapleScore);
-        console.log("shahar: %d", shaharScore);
-        console.log("yotam: %d", yotamScore);
 
-        questionNum++;
+        req.session.mapleScore += questions[req.session.questionNum].answers[ans].mScore;
+        req.session.shaharScore += questions[req.session.questionNum].answers[ans].sScore;
+        req.session.yotamScore += questions[req.session.questionNum].answers[ans].yScore;
+
+        req.session.questionNum++;
     }
-    if (questionNum == questions.length){
-        const who = CheckWinner(mapleScore, shaharScore, yotamScore);
+    if (req.session.questionNum == questions.length){
+        const who = CheckWinner(req.session.mapleScore, req.session.shaharScore, req.session.yotamScore);
         res.render(__dirname + "/views/result.ejs", {result : who});
     } else {   
-        res.render(__dirname + "/views/index.ejs", {question : questions[questionNum]});
+        res.render(__dirname + "/views/index.ejs", {question : questions[req.session.questionNum]});
     }
 });
 
